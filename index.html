@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Oh! My Browser</title>
+  <meta property="og:title" content="Oh! My Browser" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kamataryo.github.io/oh-my-browser" />
+  <meta property="og:site_name" content="Oh! My Browser" />
+  <meta property="og:description" content="Simply display your using browser." />
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+
+    .container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .browser {
+      font-size: 10vw;
+      font-family: sans-serif;
+    }
+
+    .name {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <span id="browser" class="browser"></span>
+  </div>
+  <script>
+    const sayBrowser = document.getElementById('browser')
+    let browser = false
+    const userAgent = navigator.userAgent
+
+    if ((userAgent.indexOf("Opera") || userAgent.indexOf('OPR')) != -1) {
+      browser = 'Opera';
+    } else if (userAgent.indexOf("Chrome") != -1) {
+      browser = 'Chrome';
+    } else if (userAgent.indexOf("Safari") != -1) {
+      browser = 'Safari';
+    } else if (userAgent.indexOf("Firefox") != -1) {
+      browser = 'Firefox';
+    } else if ((userAgent.indexOf("MSIE") != -1) || (!!document.documentMode == true)) {
+      browser = 'IE';
+    }
+
+    sayBrowser.innerHTML = browser ? (`It's <span class="name">` + browser + `</span>.`) : `Unknown :(`
+  </script>
+</body>
+
+</html>
