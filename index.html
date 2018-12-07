@@ -10,7 +10,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kamataryo.github.io/oh-my-browser" />
   <meta property="og:site_name" content="Oh! My Browser" />
-  <meta property="og:description" content="Simply display your using browser." />
+  <meta property="og:description" content="Simply display using browser." />
   <style>
     html,
     body {
@@ -43,23 +43,23 @@
     <span id="browser" class="browser"></span>
   </div>
   <script>
-    const sayBrowser = document.getElementById('browser')
-    let browser = false
+    const browser = document.getElementById('browser')
+    let browserName = false
     const userAgent = navigator.userAgent
 
     if ((userAgent.indexOf("Opera") || userAgent.indexOf('OPR')) != -1) {
-      browser = 'Opera';
+      browserName = 'Opera';
     } else if (userAgent.indexOf("Chrome") != -1) {
-      browser = 'Chrome';
+      browserName = 'Chrome';
     } else if (userAgent.indexOf("Safari") != -1) {
-      browser = 'Safari';
+      browserName = 'Safari';
     } else if (userAgent.indexOf("Firefox") != -1) {
-      browser = 'Firefox';
+      browserName = 'Firefox';
     } else if ((userAgent.indexOf("MSIE") != -1) || (!!document.documentMode == true)) {
-      browser = 'IE';
+      browserName = 'IE';
     }
 
-    sayBrowser.innerHTML = browser ? (`It's <span class="name">` + browser + `</span>.`) : `Unknown :(`
+    browser.innerHTML = browserName ? (`It's <span class="name">` + browserName + `</span>.`) : `Unknown :(`
   </script>
 </body>
 
